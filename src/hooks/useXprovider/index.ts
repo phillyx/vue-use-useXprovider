@@ -20,7 +20,7 @@ any
 /**
  * @see https://vueuse.org/useXProvider
  */
-export const useXProvider = <T extends Tobj>(
+export const useXprovider = <T extends Tobj>(
   defaultState: Partial<T>,
   providerComponentName = 'Context.Provider',
   injectKeyName = Symbol('xProvider'),

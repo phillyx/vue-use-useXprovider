@@ -1,4 +1,4 @@
-import { useXProvider } from '@/hooks/useXprovider'
+import { useXprovider } from 'use-x-provider'
 
 export interface ICheckBox {
   label: string
@@ -32,7 +32,7 @@ const state = {
 }
 type THomeState = typeof state
 
-export const providerFoundation = useXProvider<THomeState>(state, 'HomeContext.Provider', Symbol('home'))
+export const providerFoundation = useXprovider<THomeState>(state, 'HomeContext.Provider', Symbol('home'))
 
 export const setHomeState = providerFoundation.setState
 export const setHomeStateWithStr = providerFoundation.setStateWithStr

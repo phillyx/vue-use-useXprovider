@@ -1,5 +1,5 @@
 import App from './App.vue'
-import { useXProvider } from '@/hooks/useXprovider'
+import { useXprovider } from 'use-x-provider'
 import { defineComponent } from 'vue'
 
 interface IRootState {
@@ -27,7 +27,7 @@ const state: IRootState = {
   },
 }
 
-const providerFoundation = useXProvider<IRootState>(state, 'AppRootContext.Provider', Symbol('root'))
+const providerFoundation = useXprovider<IRootState>(state, 'AppRootContext.Provider', Symbol('root'))
 
 export const setRootState = providerFoundation.setState
 export const setRootStateWithStr = providerFoundation.setStateWithStr
@@ -43,3 +43,25 @@ export default defineComponent({
     )
   },
 })
+
+
+
+
+
+interface IDemoState{
+  status: boolean
+  foo: {
+    bar: {
+      a: string
+    }
+  }
+}
+const demoState = {
+  status:false
+} as IDemoState
+
+const DemoContext = useXprovider<IDemoState>(demoState)
+
+export const setDemoState = DemoContext.setState
+export const setDemoStateWithStr = DemoContext.setStateWithStr
+export const useDemoContext = DemoContext.useContext
